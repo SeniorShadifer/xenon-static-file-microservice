@@ -23,3 +23,6 @@ static_file_microservice.exe
 *.njsproj
 *.sln
 *.sw?
+
+# Microservice settings
+settings.static_file_server.json

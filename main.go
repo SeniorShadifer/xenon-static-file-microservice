@@ -73,7 +73,7 @@ func main() {
 	const SETTINGS_FILE_NAME = "settings.static_file_server.json"
 	content, err := os.ReadFile(SETTINGS_FILE_NAME)
 	if err != nil {
-		log.Println("Cannot read '"+SETTINGS_FILE_NAME+"':", err)
+		log.Println("Cannot read settings file:", err)
 
 		content, err = json.Marshal(settings)
 		if err != nil {
@@ -81,7 +81,7 @@ func main() {
 		} else {
 			err = os.WriteFile(SETTINGS_FILE_NAME, content, 0644)
 			if err != nil {
-				log.Println("Cannot write default settings to '"+SETTINGS_FILE_NAME, "':", err)
+				log.Println("Cannot write default settings to settings file:", err)
 			}
 		}
 	} else {
