@@ -1,5 +1,5 @@
 # Xenon static file microservice
-"Xenon" is an open source web application based on GoLang, designed to work on the I2P network. This microservice is designed to handle static HTTP requests.
+"Xenon" is an open source web application based on GoLang and React, designed to work on the I2P network. This microservice is designed to handle static HTTP requests.
 
 ## Build and run:
 ``` bash
