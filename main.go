@@ -25,11 +25,9 @@ func isPathInDir(path, dir string) (bool, error) {
 		return false, err
 	}
 
-	// Нормализуем пути
 	absPath = filepath.Clean(absPath)
 	absDir = filepath.Clean(absDir)
 
-	// Добавляем разделитель для точного сравнения
 	absDirWithSep := absDir + string(filepath.Separator)
 	absPathWithSep := absPath + string(filepath.Separator)
 
@@ -40,6 +38,8 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	log.Println("Received HTTP request:", r.URL.Path)
 
 	const STATIC_FILES_PATH = "./dist"
+
+	w.Header().Set("Content-Security-Policy", "default-src 'self'; script-src 'self'")
 
 	if strings.HasPrefix(r.URL.Path, "/app") {
 		w.Header().Set("Content-Type", "text/html")
