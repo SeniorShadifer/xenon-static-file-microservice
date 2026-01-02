@@ -1,0 +1,25 @@
+div.container {
+  padding-left: var(--padding-x);
+  padding-right: var(--padding-x);
+
+  padding-top: var(--padding-y);
+  padding-bottom: var(--padding-y);
+
+  &.center_x {
+    display: flex;
+    justify-content: center;
+  }
+
+  &.center_y {
+    display: flex;
+    align-items: center;
+  }
+
+  &.fullscreen_x {
+    width: 95%;
+  }
+
+  &.fullscreen_y {
+    height: 90vh;
+  }
+}

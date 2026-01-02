@@ -1,5 +1,18 @@
+import { useEffect } from "react";
+import Container from "../components/Container";
+import Title from "../components/Title";
+import setPageTitle from "../functions/setPageTitle";
+
 export default function Home() {
-    return <>
-        <h1>Hello, world!</h1>
+  useEffect(() => {
+    setPageTitle("Home");
+  }, []);
+
+  return (
+    <>
+      <Container center_x fullscreen_x>
+        <Title>Hello, world!</Title>
+      </Container>
     </>
+  );
 }
