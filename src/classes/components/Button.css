@@ -1,0 +1,12 @@
+button.button {
+  padding-left: var(--padding-x);
+  padding-right: var(--padding-x);
+
+  padding-top: var(--padding-y);
+  padding-bottom: var(--padding-y);
+
+  background-color: var(--semi-transparent);
+
+  color: var(--usual-text-color);
+  font-family: var(--font-family);
+}

@@ -7,10 +7,6 @@ interface TitleProperties {
 }
 
 export default class Title extends React.Component<TitleProperties> {
-  constructor(props: any) {
-    super(props);
-  }
-
   render() {
     return <h1 className="header">{this.props.children}</h1>;
   }

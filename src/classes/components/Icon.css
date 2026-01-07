@@ -1,0 +1,7 @@
+div.icon {
+  border-radius: var(--border-radius);
+
+  & *::before {
+    font-size: calc(2vh + 2vw + 5px);
+  }
+}

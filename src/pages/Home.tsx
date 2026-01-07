@@ -1,18 +1,29 @@
-import { useEffect } from "react";
-import Container from "../components/Container";
-import Title from "../components/Title";
-import setPageTitle from "../functions/setPageTitle";
+import React from "react";
 
-export default function Home() {
-  useEffect(() => {
-    setPageTitle("Home");
-  }, []);
+import Container from "../classes/components/Container";
+import PageTitle from "../classes/components/PageTitle";
+import Title from "../classes/components/Title";
+import Text from "../classes/components/Text";
+import Icon from "../classes/components/Icon";
 
-  return (
-    <>
-      <Container center_x fullscreen_x>
-        <Title>Hello, world!</Title>
-      </Container>
-    </>
-  );
+export default class Home extends React.Component {
+  render(): React.ReactNode {
+    return (
+      <>
+        <>
+          <PageTitle title="Home"></PageTitle>
+        </>
+        <Container center_y fullscreen_x wrap>
+          <Icon>
+            <i className="bi bi-brilliance"></i>
+          </Icon>
+          <Title>Hello, world!</Title>
+          <Text>
+            Welcome to "Xenon" - open-source, free and secure web-service for
+            I2P.
+          </Text>
+        </Container>
+      </>
+    );
+  }
 }

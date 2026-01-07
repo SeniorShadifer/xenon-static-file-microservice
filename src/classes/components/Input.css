@@ -1,0 +1,18 @@
+input.text_input {
+  width: calc(10vw + 10px);
+  height: calc(5px + 0.2vh);
+
+  outline: none;
+  background-color: var(--semi-transparent);
+
+  color: var(--usual-text-color);
+
+  &,
+  &::placeholder {
+    font-family: var(--font-family);
+  }
+
+  &::placeholder {
+    color: var(--secondary-text-color);
+  }
+}

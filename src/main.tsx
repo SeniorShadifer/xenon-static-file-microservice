@@ -1,17 +1,28 @@
 import ReactDOM from "react-dom/client";
 import React from "react";
+import pino from "pino";
 
 import App from "./App.tsx";
 
+export const logger = pino({
+  level: "trace",
+  transport: {
+    target: "pino-pretty",
+    options: {
+      colorize: true,
+    },
+  },
+});
+
+logger.info("Logger initialized.");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-    <>
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>
-    </>
+  <>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </>
 );
-
 
 /*
 import { ml_kem768 } from '@noble/post-quantum/ml-kem.js';

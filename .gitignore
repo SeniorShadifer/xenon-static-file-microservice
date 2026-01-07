@@ -26,3 +26,6 @@ static_file_microservice.exe
 
 # Microservice settings
 settings.static_file_server.json
+
+# Experiments
+src/pages/Experiment26104.tsx

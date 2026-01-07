@@ -1,0 +1,9 @@
+@use "styles/variables";
+@use "styles/mixins";
+
+body {
+  background-color: variables.$background-color;
+  color: variables.$usual-text-color;
+
+  font-family: variables.$font-family;
+}
