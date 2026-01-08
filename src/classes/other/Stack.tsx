@@ -1,29 +1,57 @@
-export class Stack {
-  pages: Array<any>;
-  current_page_index: number;
+import type StackElement from "./StackElement";
 
-  constructor(pages: Array<any> = [], current_page_index: number = 0) {
-    this.pages = pages;
-    this.current_page_index = current_page_index;
+export default class Stack {
+  elements: Array<StackElement>;
+  current_element_index: number;
+
+  constructor(pages: Array<StackElement> = [], current_page_index: number = 0) {
+    this.elements = pages;
+    this.current_element_index = current_page_index;
   }
 
-  public setPage(element: any, index: number) {
-    if (this.pages.length > index) {
-      this.pages[index] = element;
+  public setElement(element: StackElement, index: number) {
+    if (this.elements.length > index) {
+      this.elements[index] = element;
     } else {
-      this.pages.push(element);
+      this.elements.push(element);
     }
   }
 
-  public setCurrentPage(element: any) {
-    this.setPage(element, this.current_page_index);
+  public setCurrentElement(element: StackElement) {
+    this.setElement(element, this.current_element_index);
   }
 
-  public getPage(index: number): any {
-    return this.pages.at(index);
+  public getElement(index: number): StackElement {
+    if (this.elements.length > index) {
+      return this.elements.at(index)!;
+    } else {
+      throw new Error(`Index '${index}' is out of bounds.`);
+    }
   }
 
-  public getCurrentPage(): any {
-    return this.getPage(this.current_page_index);
+  public getCurrentElement(): StackElement {
+    return this.getElement(this.current_element_index);
+  }
+
+  public getElementOrUndefined(index: number): StackElement | undefined {
+    return this.elements.at(index);
+  }
+
+  public getCurrentElementOrUndefined(): StackElement | undefined {
+    return this.getElementOrUndefined(this.current_element_index);
+  }
+
+  public getNextElement(): StackElement {
+    const index = this.current_element_index + 1;
+    if (this.elements.length > index) {
+      return this.elements.at(index)!;
+    } else {
+      throw new Error(`Index '${index}' is out of bounds.`);
+    }
+  }
+
+  public getNextElementOrUndefined(): StackElement | undefined {
+    const index = this.current_element_index + 1;
+    return this.getElementOrUndefined(index);
   }
 }

@@ -3,6 +3,10 @@ import React from "react";
 import pino from "pino";
 
 import App from "./App.tsx";
+import catchFatal from "./functions/catchFatal.tsx";
+import StackList, {
+  getStackListFromLocalStorageOrCreateAndGetNew,
+} from "./classes/other/StackList.tsx";
 
 export const logger = pino({
   level: "trace",
@@ -16,13 +20,21 @@ export const logger = pino({
 
 logger.info("Logger initialized.");
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </>
-);
+export var stack_list: StackList;
+
+try {
+  stack_list = getStackListFromLocalStorageOrCreateAndGetNew();
+
+  ReactDOM.createRoot(document.getElementById("root")!).render(
+    <>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </>
+  );
+} catch (error) {
+  catchFatal(error);
+}
 
 /*
 import { ml_kem768 } from '@noble/post-quantum/ml-kem.js';
